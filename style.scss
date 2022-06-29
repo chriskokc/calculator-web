@@ -1,20 +1,26 @@
 // import Google font
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Prompt&family=Ubuntu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;500;700&family=Noto+Sans+JP&family=Nunito:ital,wght@0,400;1,700&display=swap');
 
 // variables
 
 // color
 // background color
-$background-color: #F9F2ED;
+$background-color: #2D4263;
+
+// navbar color
+$navbar-color: #06283D;
 
 // calculator color
-$calc-color: #06113C;
-$keys-color: #F2EBE9;
+$calc-color: #F9F2ED;
+$keys-color: #040303;
+
+// text color
+$text-color: #C4DDFF;
 
 // font family
-$logo-font: 'Ubuntu', sans-serif;
-$btn-font: 'Prompt', sans-serif;
-$formula-font: 'Oleo Script Swash Caps', cursive;
+$logo-font: 'Anek Latin', sans-serif;
+$btn-font: 'Nunito', sans-serif;
+$formula-font: 'Noto Sans JP', sans-serif;
 
 // tag selector
 
@@ -24,7 +30,7 @@ $formula-font: 'Oleo Script Swash Caps', cursive;
     padding: 0;
     box-sizing: border-box;
     // GLOBAL
-    background-color: $background-color;
+    color: $text-color;
 }
 
 a:link,
@@ -36,23 +42,91 @@ hr {
     border-style: none;
 }
 
-.calculator {
-    border: 1px solid black;
-    border-radius: 1rem;
 
-    .calculator__keypads {
-        
-        .calculator__first-row, 
-        .calculator__second-row, 
-        .calculator__third-row, 
-        .calculator__forth-row, 
-        .calculator__fifth-row {
-            background-color: $calc-color;
+// components
+
+// navbar
+
+nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    background-color: $navbar-color;
+
+    .nav__logo {
+        font-family: $logo-font;
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    .nav__formula-link {
+        font-family: $formula-font;
+        font-size: 1.3rem;
+    }
+}
+
+main {
+    background-color: $background-color;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .calculator {
+        border: 2px solid black;
+        border-radius: 1rem;
+        background-color: $calc-color;
+        width: 60%;
+        height: 75%;
+
+        .calculator__display {
+            margin: 3rem 2rem 0;
+            text-align: right;
+
+            .calculator__input {
+                border: 1px solid black;
+                color: $keys-color;
+                
+                
+            }
+
+            .calculator__output {
+                border: 1px solid black;
+                color: $keys-color;
+                
+                
+            }
         }
 
+        .calculator__divider {
+            background-color: red;
+            width: 100%;
+            height: 1px;
+        }
+
+        .calculator__container {
+            .calculator__keypads {
+                .calculator__first-row, 
+                .calculator__second-row, 
+                .calculator__third-row, 
+                .calculator__forth-row, 
+                .calculator__fifth-row {
+    
+                    .calculator__btn {
+                        color: $keys-color;
+                    }
+    
+        
+                }
+        
+            }
+
+        }
+    
+
     }
 
-    .calculator__btn {
-        background-color: $keys-color;
-    }
+
 }
