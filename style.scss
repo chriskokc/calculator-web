@@ -13,14 +13,16 @@ $navbar-color: #06283D;
 // calculator color
 $calc-color: #F9F2ED;
 $keys-color: #040303;
+$divider-color: #1D1D1F;
 
-// text color
-$text-color: #C4DDFF;
+// logo color
+$logo-color: #C4DDFF;
+
 
 // font family
 $logo-font: 'Anek Latin', sans-serif;
 $btn-font: 'Nunito', sans-serif;
-$formula-font: 'Noto Sans JP', sans-serif;
+$link-font: 'Noto Sans JP', sans-serif;
 
 // tag selector
 
@@ -30,7 +32,8 @@ $formula-font: 'Noto Sans JP', sans-serif;
     padding: 0;
     box-sizing: border-box;
     // GLOBAL
-    color: $text-color;
+    color: $keys-color;
+    font-family: $btn-font;
 }
 
 a:link,
@@ -59,11 +62,13 @@ nav {
         font-family: $logo-font;
         font-weight: 500;
         font-size: 2rem;
+        color: $logo-color;
     }
 
     .nav__formula-link {
-        font-family: $formula-font;
+        font-family: $logo-font;
         font-size: 1.3rem;
+        color: $logo-color;
     }
 }
 
@@ -79,7 +84,7 @@ main {
         border-radius: 1rem;
         background-color: $calc-color;
         width: 60%;
-        height: 75%;
+        height: 80%;
 
         .calculator__display {
             margin: 3rem 2rem 0;
@@ -87,39 +92,37 @@ main {
 
             .calculator__input {
                 border: 1px solid black;
-                color: $keys-color;
                 
                 
             }
 
             .calculator__output {
                 border: 1px solid black;
-                color: $keys-color;
                 
                 
             }
         }
 
         .calculator__divider {
-            background-color: red;
+            background-color: $divider-color;
             width: 100%;
-            height: 1px;
+            height: 2px;
         }
 
         .calculator__container {
+
             .calculator__keypads {
-                .calculator__first-row, 
-                .calculator__second-row, 
-                .calculator__third-row, 
-                .calculator__forth-row, 
-                .calculator__fifth-row {
-    
+
+                .calculator__row {
+
                     .calculator__btn {
-                        color: $keys-color;
+                        width: 3rem;
+                        height: 1rem;
                     }
-    
-        
+                
                 }
+
+        
         
             }
 
