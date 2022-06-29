@@ -36,56 +36,114 @@ nav .nav__formula-link {
   color: #C4DDFF;
 }
 
-#calculator {
-  background-color: #2D4263;
+main {
   height: 90vh;
+}
+main #calculator {
+  background-color: #2D4263;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#calculator .calculator__container {
+main #calculator .calculator__container {
   border: 2px solid black;
   border-radius: 1rem;
   background-color: #F9F2ED;
+  width: 40%;
+  height: 80%;
 }
-#calculator .calculator__container .calculator__display {
-  margin: 2rem 0 0;
+main #calculator .calculator__container .calculator__display {
+  margin: 2rem 1rem 0;
   text-align: right;
 }
-#calculator .calculator__container .calculator__display .calculator__input {
-  border: 1px solid black;
-}
-#calculator .calculator__container .calculator__display .calculator__output {
-  border: 1px solid black;
-}
-#calculator .calculator__container .calculator__divider {
+main #calculator .calculator__container .calculator__divider {
   background-color: #1D1D1F;
   width: 100%;
   height: 2px;
 }
-#calculator .calculator__container .calculator__keypads {
+main #calculator .calculator__container .calculator__keypads {
+  max-height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 25% 25% 25% 25%;
-  border: 1px solid red;
+  grid-template-rows: 20% 20% 20% 20%;
 }
-#calculator .calculator__container .calculator__keypads .calculator__btn {
-  width: 4rem;
-  height: 3rem;
+main #calculator .calculator__container .calculator__keypads .calculator__btn {
+  font-size: 2.8rem;
 }
-#calculator .calculator__container .calculator__keypads .calculator__btn--c {
+main #calculator .calculator__container .calculator__keypads .calculator__btn--c {
   grid-column: 1/2;
   grid-row: 1/2;
 }
-#calculator .calculator__container .calculator__keypads .calculator__btn--pm {
+main #calculator .calculator__container .calculator__keypads .calculator__btn--pm {
   grid-column: 2/3;
   grid-row: 1/2;
 }
-#calculator .calculator__container .calculator__keypads .calculator__btn--cent {
+main #calculator .calculator__container .calculator__keypads .calculator__btn--cent {
   grid-column: 3/4;
   grid-row: 1/2;
 }
-#calculator .calculator__container .calculator__keypads .calculator__btn--pm {
+main #calculator .calculator__container .calculator__keypads .calculator__btn--division {
   grid-column: 4/5;
   grid-row: 1/2;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--seven {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--eight {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--nine {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--multiply {
+  grid-column: 4/5;
+  grid-row: 2/3;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--four {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--five {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--six {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--minus {
+  grid-column: 4/5;
+  grid-row: 3/4;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--one {
+  grid-column: 1/2;
+  grid-row: 4/5;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--two {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--three {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--plus {
+  grid-column: 4/5;
+  grid-row: 4/5;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--zero {
+  grid-column: 1/3;
+  grid-row: 5/6;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--dot {
+  grid-column: 3/4;
+  grid-row: 5/6;
+}
+main #calculator .calculator__container .calculator__keypads .calculator__btn--equal {
+  grid-column: 4/5;
+  grid-row: 5/6;
 }
