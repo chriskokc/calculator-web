@@ -1,0 +1,58 @@
+// import Google font
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Prompt&family=Ubuntu:wght@400;700&display=swap');
+
+// variables
+
+// color
+// background color
+$background-color: #F9F2ED;
+
+// calculator color
+$calc-color: #06113C;
+$keys-color: #F2EBE9;
+
+// font family
+$logo-font: 'Ubuntu', sans-serif;
+$btn-font: 'Prompt', sans-serif;
+$formula-font: 'Oleo Script Swash Caps', cursive;
+
+// tag selector
+
+* {
+    // CSS RESET
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // GLOBAL
+    background-color: $background-color;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+hr {
+    border-style: none;
+}
+
+.calculator {
+    border: 1px solid black;
+    border-radius: 1rem;
+
+    .calculator__keypads {
+        
+        .calculator__first-row, 
+        .calculator__second-row, 
+        .calculator__third-row, 
+        .calculator__forth-row, 
+        .calculator__fifth-row {
+            background-color: $calc-color;
+        }
+
+    }
+
+    .calculator__btn {
+        background-color: $keys-color;
+    }
+}

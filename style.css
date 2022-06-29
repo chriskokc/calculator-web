@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Prompt&family=Ubuntu:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #F9F2ED;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+hr {
+  border-style: none;
+}
+
+.calculator {
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+.calculator .calculator__keypads .calculator__first-row,
+.calculator .calculator__keypads .calculator__second-row,
+.calculator .calculator__keypads .calculator__third-row,
+.calculator .calculator__keypads .calculator__forth-row,
+.calculator .calculator__keypads .calculator__fifth-row {
+  background-color: #06113C;
+}
+.calculator .calculator__btn {
+  background-color: #F2EBE9;
+}
