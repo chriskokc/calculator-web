@@ -52,6 +52,7 @@ main #calculator .calculator__container {
   border-radius: 1rem;
   background-color: #F9F7F7;
   max-height: 70%;
+  max-width: 60%;
 }
 main #calculator .calculator__container .calculator__display {
   margin: 2rem 1rem 0;
