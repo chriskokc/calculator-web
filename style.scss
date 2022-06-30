@@ -102,7 +102,7 @@ main {
                 height: 2px;
             }
 
-            .calculator__keypads {
+            .calculator__keypad {
                 max-height: 100%;
                 display: grid;
                 grid-template-columns: repeat(4, minmax(0, 1fr));
