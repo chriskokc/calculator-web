@@ -21,18 +21,19 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 3rem;
+  gap: 1rem;
+  padding: 2rem 1rem;
   background-color: #06283D;
 }
 nav .nav__logo {
   font-family: "Anek Latin", sans-serif;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: #C4DDFF;
 }
 nav .nav__formula-link {
   font-family: "Anek Latin", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #C4DDFF;
 }
 
@@ -50,7 +51,6 @@ main #calculator .calculator__container {
   border: 2px solid black;
   border-radius: 1rem;
   background-color: #F9F2ED;
-  width: 40%;
   height: 80%;
 }
 main #calculator .calculator__container .calculator__display {

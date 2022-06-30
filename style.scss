@@ -55,19 +55,20 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem;
+    gap: 1rem;
+    padding: 2rem 1rem;
     background-color: $navbar-color;
 
     .nav__logo {
         font-family: $logo-font;
         font-weight: 500;
-        font-size: 2rem;
+        font-size: 1.7rem;
         color: $logo-color;
     }
 
     .nav__formula-link {
         font-family: $logo-font;
-        font-size: 1.3rem;
+        font-size: 1rem;
         color: $logo-color;
     }
 }
@@ -87,7 +88,6 @@ main {
             border: 2px solid black;
             border-radius: 1rem;
             background-color: $calc-color;
-            width: 40%;
             height: 80%;
             
             .calculator__display {
