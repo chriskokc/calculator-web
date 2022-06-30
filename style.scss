@@ -13,6 +13,7 @@ $navbar-color: #112D4E;
 // calculator color
 $calc-color: #F9F7F7;
 $keys-color: #040303;
+$standout-color: #FFA500;
 $divider-color: #1D1D1F;
 
 // logo color
@@ -113,21 +114,25 @@ main {
                     &--c {
                         grid-column: 1 / 2;
                         grid-row: 1 / 2;
+                        background-color: $standout-color;
                     }
 
                     &--pm {
                         grid-column: 2 / 3;
                         grid-row: 1 / 2;
+                        background-color: $standout-color;
                     }
 
                     &--cent {
                         grid-column: 3 / 4;
                         grid-row: 1 / 2;
+                        background-color: $standout-color;
                     }
 
                     &--division {
                         grid-column: 4 / 5;
                         grid-row: 1 / 2;
+                        background-color: $standout-color;
                     }
 
                     &--seven {
@@ -148,6 +153,7 @@ main {
                     &--multiply {
                         grid-column: 4 / 5;
                         grid-row: 2 / 3;
+                        background-color: $standout-color;
                     }
 
                     &--four {
@@ -168,6 +174,7 @@ main {
                     &--minus {
                         grid-column: 4 / 5;
                         grid-row: 3 / 4;
+                        background-color: $standout-color;
                     }
 
                     &--one {
@@ -188,6 +195,7 @@ main {
                     &--plus {
                         grid-column: 4 / 5;
                         grid-row: 4 / 5;
+                        background-color: $standout-color;
                     }
 
                     &--zero {
@@ -203,6 +211,7 @@ main {
                     &--equal {
                         grid-column: 4 / 5;
                         grid-row: 5 / 6;
+                        background-color: $standout-color;
                     }
 
                 }
