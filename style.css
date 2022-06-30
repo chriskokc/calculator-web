@@ -23,25 +23,25 @@ nav {
   align-items: center;
   gap: 1rem;
   padding: 2rem 1rem;
-  background-color: #06283D;
+  background-color: #112D4E;
 }
 nav .nav__logo {
   font-family: "Anek Latin", sans-serif;
   font-weight: 500;
   font-size: 1.7rem;
-  color: #C4DDFF;
+  color: #DBE2EF;
 }
 nav .nav__formula-link {
   font-family: "Anek Latin", sans-serif;
   font-size: 1rem;
-  color: #C4DDFF;
+  color: #DBE2EF;
 }
 
 main {
   height: 90vh;
 }
 main #calculator {
-  background-color: #2D4263;
+  background-color: #3F72AF;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -50,7 +50,7 @@ main #calculator {
 main #calculator .calculator__container {
   border: 2px solid black;
   border-radius: 1rem;
-  background-color: #F9F2ED;
+  background-color: #F9F7F7;
   height: 80%;
 }
 main #calculator .calculator__container .calculator__display {
