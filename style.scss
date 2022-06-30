@@ -106,7 +106,7 @@ main {
                 max-height: 100%;
                 display: grid;
                 grid-template-columns: repeat(4, minmax(0, 1fr));
-                grid-template-rows: repeat(5, 17%);
+                grid-template-rows: repeat(6, minmax(0, 1fr));
                 
                 .calculator__btn {
 

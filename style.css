@@ -67,7 +67,7 @@ main #calculator .calculator__container .calculator__keypads {
   max-height: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(5, 17%);
+  grid-template-rows: repeat(6, minmax(0, 1fr));
 }
 main #calculator .calculator__container .calculator__keypads .calculator__btn {
   font-size: 2.2rem;
