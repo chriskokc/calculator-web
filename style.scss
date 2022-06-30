@@ -79,7 +79,6 @@ main {
     #calculator {
         background-color: $background-color;
         height: 100%;
-        // padding: 2rem 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -88,7 +87,7 @@ main {
             border: 2px solid black;
             border-radius: 1rem;
             background-color: $calc-color;
-            height: 66%;
+            max-height: 70%;
             
             .calculator__display {
                 margin: 2rem 1rem 0;
@@ -104,8 +103,8 @@ main {
             .calculator__keypads {
                 max-height: 100%;
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                grid-template-rows: 20% 20% 20% 20%;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(5, 17%);
                 
                 .calculator__btn {
 
