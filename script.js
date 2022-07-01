@@ -23,11 +23,15 @@ let calculator = {
     numberInputs: [null],
     input: "",
     output: "",
-    operator: null,
+    // default operator: +
+    operator: "+",
     nextNumberInputNeeded: false,
     // methods
     displayInput: () => {
         screen.innerHTML = calculator.input;
+    },
+    displayResult: () => {
+        screen.innerHTML = calculator.output;
     }
 };
 
@@ -35,17 +39,51 @@ let calculator = {
 // functions declaration
 
 const addMoreDigits = (digit) => {
-    console.log(calculator.numberInputs);
+
+    // when the user is still entering a single number
     if (!calculator.nextNumberInputNeeded) {
         calculator.input += digit;
-        calculator.numberInputs[calculator.numberInputs.length - 1] = calculator.input;
-    } else {
-        calculator.input = digit;
+        calculator.numberInputs.pop();
         calculator.numberInputs.push(calculator.input);
+        calculator.displayInput();
+    } 
+    // when the user has just pressed any operator key, i.e + - * /
+    else {
+
+        // e.g  1 + 2 * 3 - 7 = 0
+        // result = 1 + (2 * 3) + (-7)
+        // calculator.numberInputs = [1, 6, -7]
+
+        // e.g  8 - 8 / 2 + 3 = 7
+        // result = 8 + (-8 / 2) + 3
+        // calculator.numberInputs = [8, -4, 3]
+
+        calculator.input = digit;
+        calculator.displayInput();
+
+        // subtraction
+        if (calculator.operator === "-" || calculator.operator === "&#8722") {
+            calculator.displayInput();
+            calculator.input = String(Number(digit) * -1);
+        } 
+        // multiplication
+        else if (calculator.operator === "*" || calculator.operator === "&#215") {
+            previousNumber = calculator.numberInputs.pop();
+            calculator.input = String(Number(digit) * previousNumber);
+        } 
+        // division
+        else if (calculator.operator === "/" || calculator.operator === "&#247") {
+            previousNumber = calculator.numberInputs.pop();
+            calculator.input = String(previousNumber / Number(digit));
+        }
+
+        // append the number item into the numberInput array
+        calculator.numberInputs.push(calculator.input);
+        // reset operator
+        calculator.operator = "+";
         calculator.nextNumberInputNeeded = false;
+
     }
-    calculator.displayInput();
-    console.log(calculator.numberInputs);
 
 };
 
@@ -59,38 +97,17 @@ const removeLastDigit = () => {
     calculator.input = calculator.input.slice(0, -1);
     calculator.firstNum = calculator.input;
     calculator.displayInput();
-    
 }
 
-const calculation = (firstNum, secondNum, operator) => {
-    if (operator === "+") {
-        addition(firstNum, secondNum);
-    } else if (operator === "-") {
-        subtraction(firstNum, secondNum);
-    } else if (operator === "*") {
-        multiplication(firstNum, secondNum);
-    } else if (operator === "/") {
-        division(firstNum, secondNum);
-    }
-}
-
-const addition = (firstNum, secondNum) => {
-    return firstNum + secondNum;
-}
-
-const subtraction = (firstNum, secondNum) => {
-    return firstNum + secondNum;
-}
-
-const multiplication = (firstNum, secondNum) => {
-    return firstNum * secondNum;
-}
-
-const division = (firstNum, secondNum) => {
-    return firstNum / secondNum;
-}
+const calculateResult = () => {
+    const result = calculator.numberInputs.reduce((totalSum, numberItem) => {
+        return Number(totalSum) + Number(numberItem);
+    });
+    return result;
+};
 
 const handleInput = (keyStringValue) => {
+    
     switch (keyStringValue) {
         // for numbers input
         case "0":
@@ -131,25 +148,53 @@ const handleInput = (keyStringValue) => {
             }
             break;
 
-
         // for functional keys
+        // reset calculator
+        // reset the input as 0
+        // reset the output as output
+        // handle user mouse clicks on the clear button
         case "C":
             calculator.input = "0";
             calculator.displayInput();
             calculator.input = "";
+            calculator.numberInputs = [null];
             break;
         case "Backspace":
             removeLastDigit();
             break;
-        // operators
+
+        // for operators
         case "+":
-            calculator.operator = "+";
+            // default calculator.operator set to "+"
             calculator.nextNumberInputNeeded = true;
             break;
-
+        case "-":
+        case "\u2212":
+            calculator.operator = "-";
+            calculator.nextNumberInputNeeded = true;
+            break;
+        case "*":
+        case "\xD7":
+            calculator.operator = "*";
+            calculator.nextNumberInputNeeded = true;
+            break;
+        case "/":
+        case "\xF7":
+            calculator.operator = "/";
+            calculator.nextNumberInputNeeded = true;
+            break;
+        
+        // for equal sign
+        // return the calculation result to the user
+        // return the output and display it as an output
+        case "=":
+        case "Enter":
+            calculator.output = String(calculateResult());
+            calculator.displayResult();
+            break;
     
         default:
-            console.log(`The selected key is ${keyInnerHTML}`);
+            console.log(`The selected key is ${keyStringValue}`);
     }
 };
 
@@ -172,13 +217,3 @@ document.addEventListener("keydown", (event) => {
     const keyString = event.key;
     handleInput(keyString);
 });
-
-
-
-// return the output and display it as an output
-// handle user mouse clicks on the equal button
-
-// reset calculator
-// reset the input as 0
-// reset the output as output
-// handle user mouse clicks on the clear button
