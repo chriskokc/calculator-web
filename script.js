@@ -4,46 +4,85 @@
 // attach event listener to the object
 // pass in event, higher order function as parameters
 
-// functions declaration
-const buttonGotClicked = () => {
-    console.log("Button got clicked");
+// selected objects
+
+const inputDisplay = document.querySelector(".calculator__input");
+const keys = document.querySelectorAll(".calculator__btn");
+
+// Calculator object
+
+// functions required (methods):
+// addition
+// subtraction
+// multiplication
+// division
+// i.e a custom object maybe needed for calculator
+
+let calculator = {
+    firstNumber: "",
+    secondNumber: null,
+    operator: null,
+
+    displayInput: () => {
+        inputDisplay.innerHTML = calculator.firstNumber;
+    }
 };
 
-const handleInput = (keyInnerHTML) => {
+
+// functions declaration
+
+const addMoreDigits = (digit) => {
+    calculator.firstNumber += digit;
+    calculator.displayInput();
+};
+
+
+const handleInputClick = (keyInnerHTML) => {
     switch (keyInnerHTML) {
         // for numbers input
         case "0":
-            inputDisplay.innerHTML = "0";
+            addMoreDigits("0");
             break;
         case "1":
-            inputDisplay.innerHTML = "1";
+            addMoreDigits("1");
             break;
         case "2":
-            inputDisplay.innerHTML = "2";
+            addMoreDigits("2");
             break;
         case "3":
-            inputDisplay.innerHTML = "3";
+            addMoreDigits("3");
             break;
         case "4":
-            inputDisplay.innerHTML = "4";
+            addMoreDigits("4");
             break;
         case "5":
-            inputDisplay.innerHTML = "5";
+            addMoreDigits("5");
             break;
         case "6":
-            inputDisplay.innerHTML = "6";
+            addMoreDigits("6");
             break;
         case "7":
-            inputDisplay.innerHTML = "7";
+            addMoreDigits("7");
             break;
         case "8":
-            inputDisplay.innerHTML = "8";
+            addMoreDigits("8");
             break;
         case "9":
-            inputDisplay.innerHTML = "9";
-                break;
+            addMoreDigits("9");
+            break;
+        case ".":
+            if (calculator.firstNumber.slice(-1) !== ".") {
+                addMoreDigits(".");
+            }
+            break;
+
 
         // for functional keys
+        case "C":
+            calculator.firstNumber = "0";
+            calculator.displayInput();
+            calculator.firstNumber = "";
+            break;
     
         default:
             console.log(`The selected key is ${keyInnerHTML}`);
@@ -56,31 +95,15 @@ const handleInput = (keyInnerHTML) => {
 // handle user key press
 // display it as an input
 
-const inputDisplay = document.querySelector(".calculator__input");
-const keys = document.querySelectorAll(".calculator__btn");
-
-
 keys.forEach((key) => {
     key.addEventListener("click", (event) => {
        const keyInnerHTML = event.target.innerHTML;
-       handleInput(keyInnerHTML);
+       handleInputClick(keyInnerHTML);
     });
 });
 
 
 
-// perform calculation
-// store the following variables (properties):
-// first number
-// operator
-// second number
-
-// functions required (methods):
-// addition
-// subtraction
-// multiplication
-// division
-// i.e a custom object maybe needed for calculator
 
 // return the output and display it as an output
 // handle user mouse clicks on the equal button
