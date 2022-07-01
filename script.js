@@ -19,12 +19,15 @@ const keys = document.querySelectorAll(".calculator__btn");
 // i.e a custom object maybe needed for calculator
 
 let calculator = {
-    firstNumber: "",
+    // properties
+    firstNumber: null,
     secondNumber: null,
+    input: "",
+    output: "",
     operator: null,
-
+    // methods
     displayInput: () => {
-        inputDisplay.innerHTML = calculator.firstNumber;
+        inputDisplay.innerHTML = calculator.input;
     }
 };
 
@@ -32,10 +35,51 @@ let calculator = {
 // functions declaration
 
 const addMoreDigits = (digit) => {
-    calculator.firstNumber += digit;
+    calculator.input += digit;
+    calculator.firstNum = calculator.input;
     calculator.displayInput();
 };
 
+const removeLastDigit = () => {
+    if (calculator.input.length == 1) {
+        calculator.input = "0";
+        calculator.firstNum = calculator.input;
+        calculator.displayInput();
+        return;
+    }
+    calculator.input = calculator.input.slice(0, -1);
+    calculator.firstNum = calculator.input;
+    calculator.displayInput();
+    
+}
+
+const calculation = (firstNum, secondNum, operator) => {
+    if (operator === "+") {
+        addition(firstNum, secondNum);
+    } else if (operator === "-") {
+        subtraction(firstNum, secondNum);
+    } else if (operator === "*") {
+        multiplication(firstNum, secondNum);
+    } else if (operator === "/") {
+        division(firstNum, secondNum);
+    }
+}
+
+const addition = (firstNum, secondNum) => {
+    return firstNum + secondNum;
+}
+
+const subtraction = (firstNum, secondNum) => {
+    return firstNum + secondNum;
+}
+
+const multiplication = (firstNum, secondNum) => {
+    return firstNum * secondNum;
+}
+
+const division = (firstNum, secondNum) => {
+    return firstNum / secondNum;
+}
 
 const handleInput = (keyStringValue) => {
     switch (keyStringValue) {
@@ -73,7 +117,7 @@ const handleInput = (keyStringValue) => {
         case ".":
             // for inputting decimal number
             // only append the dot when there is not any dot
-            if (!calculator.firstNumber.includes(".")) {
+            if (!calculator.input.includes(".")) {
                 addMoreDigits(".");
             }
             break;
@@ -81,10 +125,18 @@ const handleInput = (keyStringValue) => {
 
         // for functional keys
         case "C":
-            calculator.firstNumber = "0";
+            calculator.input = "0";
             calculator.displayInput();
-            calculator.firstNumber = "";
+            calculator.input = "";
             break;
+        case "Backspace":
+            removeLastDigit();
+            break;
+        // operators
+        case "+":
+            calculator.operator = "+";
+            break;
+
     
         default:
             console.log(`The selected key is ${keyInnerHTML}`);
