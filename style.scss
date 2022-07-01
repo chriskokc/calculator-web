@@ -13,7 +13,6 @@ $navbar-color: #112D4E;
 // calculator color
 $calc-color: #F9F7F7;
 $keys-color: #040303;
-$hover-color: #1363DF;
 $standout-color: #FFA500;
 $divider-color: #2C3639;
 
@@ -116,10 +115,6 @@ main {
 
                     font-size: 2.2rem;
                     cursor: pointer;
-
-                    &:hover {
-                        background-color: $hover-color;
-                    }
 
                     &--c {
                         grid-column: 1 / 2;

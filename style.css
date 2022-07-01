@@ -73,9 +73,6 @@ main #calculator .calculator__container .calculator__keypad .calculator__btn {
   font-size: 2.2rem;
   cursor: pointer;
 }
-main #calculator .calculator__container .calculator__keypad .calculator__btn:hover {
-  background-color: #1363DF;
-}
 main #calculator .calculator__container .calculator__keypad .calculator__btn--c {
   grid-column: 1/2;
   grid-row: 1/2;
