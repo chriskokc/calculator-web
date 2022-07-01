@@ -6,7 +6,7 @@
 
 // selected objects
 
-const inputDisplay = document.querySelector(".calculator__input");
+const screen = document.querySelector(".calculator__screen");
 const keys = document.querySelectorAll(".calculator__btn");
 
 // Calculator object
@@ -20,14 +20,14 @@ const keys = document.querySelectorAll(".calculator__btn");
 
 let calculator = {
     // properties
-    firstNumber: null,
-    secondNumber: null,
+    numberInputs: [null],
     input: "",
     output: "",
     operator: null,
+    nextNumberInputNeeded: false,
     // methods
     displayInput: () => {
-        inputDisplay.innerHTML = calculator.input;
+        screen.innerHTML = calculator.input;
     }
 };
 
@@ -35,9 +35,18 @@ let calculator = {
 // functions declaration
 
 const addMoreDigits = (digit) => {
-    calculator.input += digit;
-    calculator.firstNum = calculator.input;
+    console.log(calculator.numberInputs);
+    if (!calculator.nextNumberInputNeeded) {
+        calculator.input += digit;
+        calculator.numberInputs[calculator.numberInputs.length - 1] = calculator.input;
+    } else {
+        calculator.input = digit;
+        calculator.numberInputs.push(calculator.input);
+        calculator.nextNumberInputNeeded = false;
+    }
     calculator.displayInput();
+    console.log(calculator.numberInputs);
+
 };
 
 const removeLastDigit = () => {
@@ -135,6 +144,7 @@ const handleInput = (keyStringValue) => {
         // operators
         case "+":
             calculator.operator = "+";
+            calculator.nextNumberInputNeeded = true;
             break;
 
     
