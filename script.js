@@ -42,10 +42,23 @@ const addMoreDigits = (digit) => {
 
     // when the user is still entering a single number
     if (!calculator.nextNumberInputNeeded) {
-        calculator.input += digit;
-        calculator.numberInputs.pop();
-        calculator.numberInputs.push(calculator.input);
-        calculator.displayInput();
+        console.log(calculator.input.slice(0, 1));
+        if (calculator.input.slice(0, 1) === "-") {
+            // remove the negative sign on screen when subtracting number greater than or equal to 10
+            let absoluteDigit = calculator.input.slice(1);
+            absoluteDigit += digit;
+            calculator.input += digit;
+            // update the input value as the user has not finished typing the number
+            calculator.numberInputs.pop();
+            calculator.numberInputs.push(calculator.input);
+            screen.innerHTML = absoluteDigit;
+        } else {
+            calculator.input += digit;
+            // update the input value as the user has not finished typing the number
+            calculator.numberInputs.pop();
+            calculator.numberInputs.push(calculator.input);
+            calculator.displayInput();
+        }
     } 
     // when the user has just pressed any operator key, i.e + - * /
     else {
@@ -58,27 +71,31 @@ const addMoreDigits = (digit) => {
         // result = 8 + (-8 / 2) + 3
         // calculator.numberInputs = [8, -4, 3]
 
+        // e.g 2 - 10 = -8
+        // result = 2 + (-10)
+        // calculator.numberInputs = [2, -10]
+
         calculator.input = digit;
         calculator.displayInput();
 
         // subtraction
-        if (calculator.operator === "-" || calculator.operator === "&#8722") {
-            calculator.displayInput();
+        if (calculator.operator === "-" || calculator.operator === "\u2212") {
             calculator.input = String(Number(digit) * -1);
         } 
         // multiplication
-        else if (calculator.operator === "*" || calculator.operator === "&#215") {
+        else if (calculator.operator === "*" || calculator.operator === "\xD7") {
             previousNumber = calculator.numberInputs.pop();
             calculator.input = String(Number(digit) * previousNumber);
         } 
         // division
-        else if (calculator.operator === "/" || calculator.operator === "&#247") {
+        else if (calculator.operator === "/" || calculator.operator === "\xF7") {
             previousNumber = calculator.numberInputs.pop();
             calculator.input = String(previousNumber / Number(digit));
         }
 
         // append the number item into the numberInput array
         calculator.numberInputs.push(calculator.input);
+        console.log(calculator.numberInputs);
         // reset operator
         calculator.operator = "+";
         calculator.nextNumberInputNeeded = false;
@@ -154,12 +171,19 @@ const handleInput = (keyStringValue) => {
         // reset the output as output
         // handle user mouse clicks on the clear button
         case "C":
-            calculator.input = "0";
-            calculator.displayInput();
+            // display 0
+            screen.innerHTML = "0";
+            // back to default setting
             calculator.input = "";
             calculator.numberInputs = [null];
             break;
         case "Backspace":
+            if (calculator.input == 0) {
+                calculator.input = "";
+            }
+            if (calculator.input == "") {
+                return;
+            }
             removeLastDigit();
             break;
 
@@ -169,7 +193,7 @@ const handleInput = (keyStringValue) => {
             calculator.nextNumberInputNeeded = true;
             break;
         case "-":
-        case "\u2212":
+        case "\u2212": 
             calculator.operator = "-";
             calculator.nextNumberInputNeeded = true;
             break;
@@ -189,8 +213,15 @@ const handleInput = (keyStringValue) => {
         // return the output and display it as an output
         case "=":
         case "Enter":
+            if (calculator.numberInputs.includes(null)) {
+                screen.innerHTML = "0";
+                return;
+            } 
             calculator.output = String(calculateResult());
             calculator.displayResult();
+            // memorise the previous calculation result unless the user hits the clear button
+            calculator.numberInputs = [calculator.output];
+            console.log(calculator.numberInputs);
             break;
     
         default:
