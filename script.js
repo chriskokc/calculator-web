@@ -37,8 +37,8 @@ const addMoreDigits = (digit) => {
 };
 
 
-const handleInputClick = (keyInnerHTML) => {
-    switch (keyInnerHTML) {
+const handleInput = (keyStringValue) => {
+    switch (keyStringValue) {
         // for numbers input
         case "0":
             addMoreDigits("0");
@@ -71,7 +71,9 @@ const handleInputClick = (keyInnerHTML) => {
             addMoreDigits("9");
             break;
         case ".":
-            if (calculator.firstNumber.slice(-1) !== ".") {
+            // for inputting decimal number
+            // only append the dot when there is not any dot
+            if (!calculator.firstNumber.includes(".")) {
                 addMoreDigits(".");
             }
             break;
@@ -91,17 +93,23 @@ const handleInputClick = (keyInnerHTML) => {
 
 
 // handle user input
-// handle user mouse clicks on keypads
-// handle user key press
 // display it as an input
 
+// handle user mouse clicks on keypads
 keys.forEach((key) => {
     key.addEventListener("click", (event) => {
        const keyInnerHTML = event.target.innerHTML;
-       handleInputClick(keyInnerHTML);
+       handleInput(keyInnerHTML);
     });
 });
 
+// handle user key press
+document.addEventListener("keydown", (event) => {
+    // event is a KeyboardEvent object, which describes a user interaction with the keyboard
+    // KeyboardEvent.key returns a string representing the key value of the key represented by the event.
+    const keyString = event.key;
+    handleInput(keyString);
+});
 
 
 
