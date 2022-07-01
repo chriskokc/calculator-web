@@ -116,19 +116,19 @@ main {
                     font-size: 2.2rem;
                     cursor: pointer;
 
-                    &--c {
+                    &--clear {
                         grid-column: 1 / 2;
                         grid-row: 1 / 2;
                         background-color: $standout-color;
                     }
 
-                    &--pm {
+                    &--sign {
                         grid-column: 2 / 3;
                         grid-row: 1 / 2;
                         background-color: $standout-color;
                     }
 
-                    &--cent {
+                    &--percentage {
                         grid-column: 3 / 4;
                         grid-row: 1 / 2;
                         background-color: $standout-color;
@@ -268,10 +268,10 @@ main {
                 }
                 
                 .calculator__keypad {
+                    max-height: 65%;
                     
                     .calculator__btn {
                         font-size: 2.5rem;
-                        background-color: $standout-color;
                     }
                 
                 }

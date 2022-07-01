@@ -73,17 +73,17 @@ main #calculator .calculator__container .calculator__keypad .calculator__btn {
   font-size: 2.2rem;
   cursor: pointer;
 }
-main #calculator .calculator__container .calculator__keypad .calculator__btn--c {
+main #calculator .calculator__container .calculator__keypad .calculator__btn--clear {
   grid-column: 1/2;
   grid-row: 1/2;
   background-color: #FFA500;
 }
-main #calculator .calculator__container .calculator__keypad .calculator__btn--pm {
+main #calculator .calculator__container .calculator__keypad .calculator__btn--sign {
   grid-column: 2/3;
   grid-row: 1/2;
   background-color: #FFA500;
 }
-main #calculator .calculator__container .calculator__keypad .calculator__btn--cent {
+main #calculator .calculator__container .calculator__keypad .calculator__btn--percentage {
   grid-column: 3/4;
   grid-row: 1/2;
   background-color: #FFA500;
@@ -178,8 +178,10 @@ main #calculator .calculator__container .calculator__keypad .calculator__btn--eq
     text-align: right;
     font-size: 2.8rem;
   }
+  main #calculator .calculator__container .calculator__keypad {
+    max-height: 65%;
+  }
   main #calculator .calculator__container .calculator__keypad .calculator__btn {
     font-size: 2.5rem;
-    background-color: #FFA500;
   }
 }
