@@ -23,9 +23,8 @@ let calculator = {
     numberInputs: [null],
     input: "",
     output: "",
-    // default operator: +
-    operator: "+",
-    nextNumberInputNeeded: false,
+    operator: "",
+    nextInputNeeded: false,
     // methods
     displayInput: () => {
         screen.innerHTML = calculator.input;
@@ -41,8 +40,9 @@ let calculator = {
 const addMoreDigits = (digit) => {
 
     // when the user is still entering a single number
-    if (!calculator.nextNumberInputNeeded) {
-        console.log(calculator.input.slice(0, 1));
+    // do string concatenation
+    if (!calculator.nextInputNeeded) {
+        
         if (calculator.input.slice(0, 1) === "-") {
             // remove the negative sign on screen when subtracting number greater than or equal to 10
             let absoluteDigit = calculator.input.slice(1);
@@ -59,8 +59,11 @@ const addMoreDigits = (digit) => {
             calculator.numberInputs.push(calculator.input);
             calculator.displayInput();
         }
+
+        console.log(calculator.numberInputs);
     } 
     // when the user has just pressed any operator key, i.e + - * /
+    // stop string concatenation and move on to adding the next item to an array
     else {
 
         // e.g  1 + 2 * 3 - 7 = 0
@@ -75,30 +78,40 @@ const addMoreDigits = (digit) => {
         // result = 2 + (-10)
         // calculator.numberInputs = [2, -10]
 
+        // e.g 6 * 32 = 192
+        // calculator.numberInputs = [192]
+
         calculator.input = digit;
         calculator.displayInput();
 
+        // addition
+        if (calculator.operator === "+") {
+            console.log("Operator inserted");
+        }
         // subtraction
-        if (calculator.operator === "-" || calculator.operator === "\u2212") {
-            calculator.input = String(Number(digit) * -1);
+        else if (calculator.operator === "-" || calculator.operator === "\u2212") {
+            console.log("Operator inserted");
         } 
         // multiplication
         else if (calculator.operator === "*" || calculator.operator === "\xD7") {
-            previousNumber = calculator.numberInputs.pop();
-            calculator.input = String(Number(digit) * previousNumber);
+            console.log("Operator inserted");
+           
         } 
         // division
         else if (calculator.operator === "/" || calculator.operator === "\xF7") {
-            previousNumber = calculator.numberInputs.pop();
-            calculator.input = String(previousNumber / Number(digit));
+            console.log("Operator inserted");
+            
         }
 
         // append the number item into the numberInput array
         calculator.numberInputs.push(calculator.input);
+
+        // if the calculator input contains a valid number, keep do string concatenation for the next input
+        if (!isNaN(calculator.input)) {
+            calculator.nextInputNeeded = false;
+        }
+
         console.log(calculator.numberInputs);
-        // reset operator
-        calculator.operator = "+";
-        calculator.nextNumberInputNeeded = false;
 
     }
 
@@ -124,7 +137,6 @@ const calculateResult = () => {
 };
 
 const handleInput = (keyStringValue) => {
-    
     switch (keyStringValue) {
         // for numbers input
         case "0":
@@ -189,24 +201,33 @@ const handleInput = (keyStringValue) => {
 
         // for operators
         case "+":
-            // default calculator.operator set to "+"
-            calculator.nextNumberInputNeeded = true;
+            calculator.operator = "+";
+            calculator.nextInputNeeded = true;
+            addMoreDigits("+");
             break;
         case "-":
         case "\u2212": 
             calculator.operator = "-";
-            calculator.nextNumberInputNeeded = true;
+            calculator.nextInputNeeded = true;
+            addMoreDigits("-");
             break;
         case "*":
         case "\xD7":
             calculator.operator = "*";
-            calculator.nextNumberInputNeeded = true;
+            calculator.nextInputNeeded = true;
+            addMoreDigits("*");
             break;
         case "/":
         case "\xF7":
             calculator.operator = "/";
-            calculator.nextNumberInputNeeded = true;
+            calculator.nextInputNeeded = true;
+            addMoreDigits("/");
             break;
+        case "+/-":
+        case "+/\u2212":
+            calculator.numberInputs[calculator.numberInputs.length - 1] *= -1;
+            screen.innerHTML = calculator.numberInputs[calculator.numberInputs.length - 1];
+            console.log(calculator.numberInputs);
         
         // for equal sign
         // return the calculation result to the user
