@@ -81,8 +81,15 @@ const addMoreDigits = (digit) => {
         // e.g 6 * 32 = 192
         // calculator.numberInputs = [192]
 
+        
+        const previousInput = calculator.input;
+        console.log(`Previous input is ${previousInput}.`);
         calculator.input = digit;
-        calculator.displayInput();
+
+        // display input to the screen only when it is a number
+        if (!isNaN(calculator.input)) {
+            calculator.displayInput();
+        }
 
         // addition
         if (calculator.operator === "+") {
@@ -103,13 +110,19 @@ const addMoreDigits = (digit) => {
             
         }
 
-        // append the number item into the numberInput array
+        // exit the function if the previous input is an operator
+        if (isNaN(previousInput) && isNaN(calculator.input)) {
+            return;
+        }
+
         calculator.numberInputs.push(calculator.input);
+        
 
         // if the calculator input contains a valid number, keep do string concatenation for the next input
         if (!isNaN(calculator.input)) {
             calculator.nextInputNeeded = false;
         }
+
 
         console.log(calculator.numberInputs);
 
