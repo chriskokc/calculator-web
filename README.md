@@ -108,3 +108,8 @@ The calculation can also handle double or more digit numbers. When the user keep
 
 - Handle user mouse clicks on the clear button
 - Reset the input and display value as 0
+
+## Future improvement
+- For keypress interaction, the calculation returns the correct output. However, after clicking the clear button, only the mouse click interaction functions properly. Pressing the `enter` button would return 0. While looking into the issue, two calculator arrays actually store the correct values, just that the `enter` button does not work as expected to return the output. Things would resume when the program restart again. Investigation would be needed to focus on this keypress interaction issue.
+- A better styling can be adopted after gathering user feedback.
+- A more accessible design should able be considered to improve overall user experience. 
