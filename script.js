@@ -113,38 +113,27 @@ const addMoreInput = (newInput) => {
 
 const handleDataCleaning = () => {
     // starting from i = 1, 3, 5, 7... i.e looping through the operators in an array
-    for (let i = 1; i < calculator.numberInputsArr.length; i+=2) {
+    for (let i = 1; i < calculator.numberInputsArr.length; i+=2 ) {
         // addition
         if (calculator.numberInputsArr[i] === "+") {
             if (i === 1) {
-                calculator.preprocessingArr.push(calculator.numberInputsArr[0]);
+                calculator.preprocessingArr.push(Number(calculator.numberInputsArr[0]));
             }
-            
-            // if the next operator is * or /, drop the next number
-            if ((i + 2 < calculator.numberInputsArr.length) && (calculator.numberInputsArr[i+2] === "*" || calculator.numberInputsArr[i+2] === "\xD7") ||
-            (calculator.numberInputsArr[i+2] === "/" || calculator.numberInputsArr[i+2] === "\xF7"))
-             {
-                console.log("Checking");
-            } else {
-                const intermediateResult = Number(calculator.numberInputsArr[i+1]);
-                calculator.preprocessingArr.push(intermediateResult);
+
+            if (calculator.numberInputsArr[i+2] !== "*" && calculator.numberInputsArr[i+2] !== "/" ) {
+                calculator.preprocessingArr.push(Number(calculator.numberInputsArr[i+1]));
+                console.log(calculator.numberInputsArr[i+2]);
             }
         }
+
         // subtraction
         else if (calculator.numberInputsArr[i] === "-" || calculator.numberInputsArr[i] === "\u2212") {
             if (i === 1) {
-                calculator.preprocessingArr.push(calculator.numberInputsArr[0]);
+                calculator.preprocessingArr.push(Number(calculator.numberInputsArr[0]));
             }
 
-            // if the next operator is * or /, drop the next number
-            if ((i + 2 < calculator.numberInputsArr.length) && (calculator.numberInputsArr[i+2] === "*" || calculator.numberInputsArr[i+2] === "\xD7") ||
-            (calculator.numberInputsArr[i+2] === "/" || calculator.numberInputsArr[i+2] === "\xF7"))
-             {
-                console.log("Checking");
-            } else {
-                // change the sign to negative
-                const intermediateResult = Number(calculator.numberInputsArr[i+1]) * -1;
-                calculator.preprocessingArr.push(intermediateResult);
+            if (calculator.numberInputsArr[i+2] !== "*" && calculator.numberInputsArr[i+2] !== "/") {
+                calculator.preprocessingArr.push(Number(calculator.numberInputsArr[i+1]) * -1);
             }
 
         } 
@@ -153,10 +142,10 @@ const handleDataCleaning = () => {
             // do calculation with the numbers positioned at indices i-1 and i+1
             let intermediateResult = Number(calculator.numberInputsArr[i-1]) * Number(calculator.numberInputsArr[i+1]);
             
-            // if the previous operator is negative, multiply -1
-            if ((i - 2 >= 0) && (calculator.numberInputsArr[i-2] === "-" || calculator.numberInputsArr[i-2] === "\u2212")) {
-                alert("?");
+            if (calculator.numberInputsArr[i-2] === "-" || calculator.numberInputsArr[i-2] === "\u2212") {
+                intermediateResult *= -1;
             }
+            
             calculator.preprocessingArr.push(intermediateResult);
         } 
         // division
@@ -164,10 +153,10 @@ const handleDataCleaning = () => {
             // do calculation with the numbers positioned at indices i-1 and i+1
             let intermediateResult = Number(calculator.numberInputsArr[i-1]) / Number(calculator.numberInputsArr[i+1]);
             
-            // if the previous operator is negative, multiply -1
-            if ((i - 2 >= 0) && (calculator.numberInputsArr[i-2] === "-" || calculator.numberInputsArr[i-2] === "\u2212")) {
-                alert("?");
+            if (calculator.numberInputsArr[i-2] === "-" || calculator.numberInputsArr[i-2] === "\u2212") {
+                intermediateResult *= -1;
             }
+            
             calculator.preprocessingArr.push(intermediateResult);
         }
     }
@@ -299,8 +288,8 @@ const handleInput = (keyStringValue) => {
             calculator.output = String(calculateResult());
             calculator.displayResult();
             // memorise the previous calculation result unless the user hits the clear button
-            calculator.preprocessingArr = [calculator.output];
-            console.log(calculator.preprocessingArr);
+            calculator.numberInputsArr = [calculator.output];
+            calculator.preprocessingArr = [null];
             break;
     
         default:
