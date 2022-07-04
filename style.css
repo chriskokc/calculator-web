@@ -171,8 +171,8 @@ nav .nav__formula-link {
   }
 
   main #calculator .calculator__container {
-    height: 100%;
-    width: 60%;
+    max-height: 70%;
+    width: 80%;
   }
   main #calculator .calculator__container .calculator__display {
     margin: 2rem 1rem 0;
