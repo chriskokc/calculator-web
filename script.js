@@ -66,22 +66,6 @@ const addMoreInput = (newInput) => {
     // stop string concatenation and move on to adding the next item to an array
     else {
 
-        // e.g  1 + 2 * 3 - 7 = 0
-        // result = 1 + (2 * 3) + (-7)
-        // calculator.numberInputs = [1, 6, -7]
-
-        // e.g  8 - 8 / 2 + 3 = 7
-        // result = 8 + (-8 / 2) + 3
-        // calculator.numberInputs = [8, -4, 3]
-
-        // e.g 2 - 10 = -8
-        // result = 2 + (-10)
-        // calculator.numberInputs = [2, -10]
-
-        // e.g 6 * 32 = 192
-        // calculator.numberInputs = [192]
-
-        
         const previousInput = calculator.input;
         // console.log(`Previous input is ${previousInput}.`);
         calculator.input = newInput;

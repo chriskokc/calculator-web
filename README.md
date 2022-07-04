@@ -60,8 +60,41 @@ To handle multiple number and operator inputs in a normal day-to-day calculation
 
 
 ## Algorithm used in the calculator
+Taking the precedence rules in arithmetic operations into considerations, the order of calculations plays a big role in giving the correct output. Therefore, operators should allow different orders of execution. As shown in the following examples, multiplication and division should go first in a calculation. Addition and subtraction can be thought as the same operation, as subtracting a number means adding a negative number. Besides, multiplication and division are also similar as dividing a number means multiplying a fraction.
 
+```
+// example 1
+// e.g  1 + 2 * 3 - 7 = 0
+// result = 1 + (2 * 3) + (-7)
 
+// example 2
+// e.g  8 - 8 / 2 + 3 = 7
+// result = 8 + (-8 / 2) + 3
+
+// example 3
+// e.g 2 - 10 = -8
+// result = 2 + (-10)
+
+// example 4
+// e.g 6 * 32 = 192
+
+```
+
+So, with a mean of storing both the number and operators input in an array, calculation was broken down into sub-calculations, by doing mmultiplication and division first and keeping track of the intermediate result in the array:
+
+```
+// example 1
+// calculator.numberInputsArr = ["1", "+", "2", "*", "3", "-", "7"];
+// calculator.preprocessingArr = [1, 6, -7];
+
+// example 2
+// calculator.numberInputsArr = ["8", "-", "8", "/", "2", "+", "3"];
+// calculator.preprocessingArr = [8, -4, 3];
+```
+
+Based on the number preprocessing array, a high order function in array iterator, i.e a reduce function, was used to increment all the numbers in the array and return the final result as the output of the calculation.
+
+The calculation can also handle double or more digit numbers. When the user keeps putting a number string by using their mouse or keyboard, string concatenation ensures it gets the right input. Once the user type operator like "+", "-", "*", "/", string concatenation stops and it moves on the adding the input to the next item in the array.
 
 ## Reset calculator
 
