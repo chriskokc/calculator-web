@@ -1,6 +1,4 @@
-@use "variables" as *; 
-
-// Media Queries for Desktop
+ // Media Queries for Desktop
 @media screen and (min-width: 1024px) {
 
     // navbar
@@ -26,7 +24,7 @@
     
             .calculator__container {
                 height: 100%;
-                width: 40%;
+                width: 60%;
                 
                 .calculator__display {
                     margin: 2rem 1rem 0;
