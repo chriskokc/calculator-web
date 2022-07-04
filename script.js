@@ -222,6 +222,7 @@ const handleInput = (keyStringValue) => {
             calculator.numberInputsArr = [null];
             calculator.preprocessingArr = [null];
             break;
+
         case "Backspace":
             if (calculator.input == 0) {
                 calculator.input = "";
@@ -237,21 +238,25 @@ const handleInput = (keyStringValue) => {
             calculator.nextInputNeeded = true;
             addMoreInput("+");
             break;
+
         case "-":
         case "\u2212": 
             calculator.nextInputNeeded = true;
             addMoreInput("-");
             break;
+
         case "*":
         case "\xD7":
             calculator.nextInputNeeded = true;
             addMoreInput("*");
             break;
+
         case "/":
         case "\xF7":
             calculator.nextInputNeeded = true;
             addMoreInput("/");
             break;
+
         case "+/-":
         case "+/\u2212":
             let lastNumber = Number(calculator.numberInputsArr.pop());
@@ -259,9 +264,15 @@ const handleInput = (keyStringValue) => {
             screen.innerHTML = String(lastNumber);
             calculator.numberInputsArr.push(String(lastNumber));
             console.log(calculator.numberInputsArr);
-            
-            
-        
+            break;
+
+        case "%":
+        case "\u0025":
+            let percentNum = Number(calculator.numberInputsArr.pop());
+            percentNum /= 100;
+            screen.innerHTML = String(percentNum);
+            calculator.numberInputsArr.push(String(percentNum));
+            break;
         // for equal sign
         // return the calculation result to the user
         // return the output and display it as an output
