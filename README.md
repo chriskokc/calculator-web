@@ -1,17 +1,17 @@
 # CK Calculator Web App
 
 ## Description
-The CK Calculator has been designed to handle basic arithmetic operations on number inputs, including addition, subtraction, multiplication and division. The project  has been divided into a few sub-goals as below:
+The CK Calculator has been designed to handle basic arithmetic operations on multiple number inputs, including addition, subtraction, multiplication and division for users' daily use. The project has been divided into a few sub-goals as below:
 
 ## Design and Layout
 Since it is the first iteration of creating the calculator web app, a simple and clean design has been adopted so that user can focus on testing the functionalities.
 
 - Structure:
-    -- In the HTML, a main calculator container hold all the buttons.
+    - In the HTML, a main calculator container hold all the buttons.
 
 - Layout:
-    -- The calculator container employed the Grid Layout to keep the buttons in place.
-    -- Standout colour was applied to functional keys so as to help user distinguish between them and the number keys.
+    - The calculator container employed the Grid Layout to keep the buttons in place.
+    - Standout colour was applied to functional keys so as to help user distinguish between them and the number keys.
 
 
 ## Handle user input
