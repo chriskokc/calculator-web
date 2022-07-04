@@ -1,0 +1,52 @@
+@use "variables" as *; 
+
+// Media Queries for Desktop
+@media screen and (min-width: 1024px) {
+
+    // navbar
+
+    nav {
+        padding: 3rem 2rem;
+    
+        .nav__logo {
+            font-size: 2.8rem;
+        }
+    
+        .nav__formula-link {
+            font-size: 1.4rem;
+        }
+    }
+
+
+    main {
+        
+        // Calculator Section
+
+        #calculator {
+    
+            .calculator__container {
+                height: 100%;
+                width: 40%;
+                
+                .calculator__display {
+                    margin: 2rem 1rem 0;
+                    text-align: right;
+                    font-size: 2.8rem;
+                }
+                
+                .calculator__keypad {
+                    max-height: 65%;
+                    
+                    .calculator__btn {
+                        font-size: 2.5rem;
+                    }
+                
+                }
+            
+            }
+    
+        }
+    
+    }
+
+}

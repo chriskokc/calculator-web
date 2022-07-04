@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+// navbar
+
+nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    background-color: $navbar-color;
+
+    .nav__logo {
+        font-family: $logo-font;
+        font-weight: 500;
+        font-size: 1.7rem;
+        color: $logo-color;
+    }
+
+    .nav__formula-link {
+        font-family: $logo-font;
+        font-size: 1rem;
+        color: $logo-color;
+    }
+}

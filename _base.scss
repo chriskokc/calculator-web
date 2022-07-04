@@ -1,0 +1,29 @@
+// import Google font
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;500;700&family=Noto+Sans+JP&family=Nunito:ital,wght@0,400;1,700&display=swap');
+@use "variables" as *;
+
+
+// tag selector
+
+* {
+    // CSS RESET
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // GLOBAL
+    color: $keys-color;
+    font-family: $btn-font;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+hr {
+    border-style: none;
+}
+
+main {
+    height: 90vh;
+}
