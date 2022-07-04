@@ -100,7 +100,7 @@ So, with a mean of storing both the number and operators input in an array, calc
 // calculator.preprocessingArr = [8, -4, 3];
 ```
 
-Based on the number preprocessing array, a high order function in array iterator, i.e a reduce function, was used to increment all the numbers in the array and return the final result as the output of the calculation.
+Based on the number preprocessing array, a high order function in array iterator, i.e a <em> reduce</em> function, was used to increment all the numbers in the array and return the final result as the output of the calculation.
 
 The calculation can also handle double or more digit numbers. When the user keeps putting a number string by using their mouse or keyboard, string concatenation ensures it gets the right input. Once the user type operator like `+`, `-`, `*`, `/`, string concatenation stops and it moves on to add the input to the next item in the array.
 
