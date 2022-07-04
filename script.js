@@ -83,7 +83,7 @@ const addMoreInput = (newInput) => {
 
         
         const previousInput = calculator.input;
-        console.log(`Previous input is ${previousInput}.`);
+        // console.log(`Previous input is ${previousInput}.`);
         calculator.input = newInput;
 
         // display input to the screen only when it is a number
@@ -103,7 +103,6 @@ const addMoreInput = (newInput) => {
         if (!isNaN(calculator.input)) {
             calculator.nextInputNeeded = false;
         }
-
 
         console.log(calculator.numberInputsArr);
 
@@ -271,9 +270,13 @@ const handleInput = (keyStringValue) => {
             break;
         case "+/-":
         case "+/\u2212":
-            calculator.numberInputsArr[calculator.numberInputsArr.length - 1] *= -1;
-            screen.innerHTML = calculator.numberInputsArr[calculator.numberInputsArr.length - 1];
+            let lastNumber = Number(calculator.numberInputsArr.pop());
+            lastNumber *= -1;
+            screen.innerHTML = String(lastNumber);
+            calculator.numberInputsArr.push(String(lastNumber));
             console.log(calculator.numberInputsArr);
+            
+            
         
         // for equal sign
         // return the calculation result to the user
