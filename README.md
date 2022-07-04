@@ -1,12 +1,9 @@
 # CK Calculator Web App
 
 ## Description
-The CK Calculator has been designed to handle basic arithmetic operations on multiple number inputs, including addition, subtraction, multiplication and division for users' daily use. 
+CK Calculator: https://chriskokc.github.io/calculator-web/
 
-CK Calculator: https://chriskokc.github.io/calculator-web/;
-
-
-The project has been divided into a few sub-goals as below:
+The CK Calculator has been designed to handle basic arithmetic operations on multiple number inputs, including addition, subtraction, multiplication and division for users' daily use. The project has been divided into a few sub-goals as below:
 
 ## Design and Layout
 Since it is the first iteration of creating the calculator web app, a simple and clean design has been adopted so that user can focus on testing the functionalities.
