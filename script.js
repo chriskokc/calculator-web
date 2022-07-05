@@ -128,8 +128,15 @@ const handleDataCleaning = () => {
             if (calculator.numberInputsArr[i-2] === "-" || calculator.numberInputsArr[i-2] === "\u2212") {
                 intermediateResult *= -1;
             }
-            
+
+            if (calculator.numberInputsArr[i-2] === "*" || calculator.numberInputsArr[i-2] === "\xD7") {
+                // simply update the last element of the preprocessingArr if the previous operator is already a "*"
+                calculator.preprocessingArr[calculator.preprocessingArr.length - 1] *= Number(calculator.numberInputsArr[i+1]);
+                break;
+            }
+
             calculator.preprocessingArr.push(intermediateResult);
+
         } 
         // division
         else if (calculator.numberInputsArr[i] === "/" || calculator.numberInputsArr[i] === "\xF7") {
@@ -138,6 +145,12 @@ const handleDataCleaning = () => {
             
             if (calculator.numberInputsArr[i-2] === "-" || calculator.numberInputsArr[i-2] === "\u2212") {
                 intermediateResult *= -1;
+            }
+
+            if (calculator.numberInputsArr[i-2] === "/" || calculator.numberInputsArr[i-2] === "\xF7") {
+                // simply update the last element of the preprocessingArr if the previous operator is already a "/"
+                calculator.preprocessingArr[calculator.preprocessingArr.length - 1] /= Number(calculator.numberInputsArr[i+1]);
+                break;
             }
             
             calculator.preprocessingArr.push(intermediateResult);

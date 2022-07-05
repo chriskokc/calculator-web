@@ -18,6 +18,7 @@ Since it is the first iteration of creating the calculator web app, a simple and
 - <em>Mobile view</em>:
 <img height="500" width="300" alt="calculator-mobile" src="https://user-images.githubusercontent.com/87203804/177202605-b13eb2eb-f183-4e09-a77c-4897f8a3e890.png">
 
+
 - <em>Desktop view</em>:
 <img height="400" width="800" alt="calculator-desktop" src="https://user-images.githubusercontent.com/87203804/177201196-eb352048-f5c5-4c8f-80e7-5a7c2de2a53b.png">
 
